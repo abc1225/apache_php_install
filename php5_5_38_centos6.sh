@@ -1,18 +1,18 @@
 #!/bin/bash
 PHP_INI_PATH=/usr/local/lib
 PHP_FPM_PATH=/usr/local/etc
-PHP_EXTENSION_PATH=/usr/local/lib/php/extensions/no-debug-non-zts-20131226/
+PHP_EXTENSION_PATH=/usr/local/lib/php/extensions/no-debug-non-zts-20121212
 
 ###########################################注意: sphnix 扩展依赖libsphinxclient， 需要先编译安装sphinx 
 ###  http://sphinxsearch.com/downloads/     https://lvtao.net/database/sphinx-install.html   
 
 
-#wget http://sphinxsearch.com/files/sphinx-3.0.3-facc3fb-linux-amd64-glibc2.12.tar.gz
-#tar -zxvf sphinx-3.0.3-facc3fb-linux-amd64-glibc2.12.tar.gz
-#cd sphinx-3.0.3/api/libsphinxclient/
-#./configure --prefix=/usr/local/sphinxclient
-#make && make install
-#cd ../../../
+wget http://sphinxsearch.com/files/sphinx-3.0.3-facc3fb-linux-amd64-glibc2.12.tar.gz
+tar -zxvf sphinx-3.0.3-facc3fb-linux-amd64-glibc2.12.tar.gz
+cd sphinx-3.0.3/api/libsphinxclient/
+./configure --prefix=/usr/local/sphinxclient
+make && make install
+cd ../../../
 
 
 # 扩展包更新包  当 libmcrypt-devel libicu-devel libicu 找不到时
@@ -195,7 +195,15 @@ chmod 777 /etc/init.d/php-fpm
 /usr/local/bin/pecl install redis
 /usr/local/bin/pecl install mongo
 /usr/local/bin/pecl install mongodb
-/usr/local/bin/pecl install sphinx
+#/usr/local/bin/pecl install sphinx
+
+wget http://pecl.php.net/get/sphinx-1.3.3.tgz
+tar zxvf sphinx-1.3.3.tgz 
+cd sphinx-1.3.3
+./configure –with-php-config=/usr/local/php/bin/php-config 
+make && make install 
+cd ..
+
 
 
 wget http://downloads.zend.com/guard/7.0.0/zend-loader-php5.6-linux-x86_64_update1.tar.gz
