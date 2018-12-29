@@ -10,7 +10,7 @@ yum  update
 #  libmcrypt installed by source code  in rely.sh
 
 # 第二步   Centos 编译安装 PHP 5.6.37
-yum install gcc gcc-c++ make autoconf
+yum install gcc gcc-c++ make autoconf automake autotools-dev libtool pkg-config
 yum groupinstall "Development tools"
 yum install libmcrypt-devel libxml2-devel gd-devel openssl-devel libmcrypt-devel libicu-devel libicu mysql-devel
 
