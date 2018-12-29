@@ -38,7 +38,7 @@ git clone https://github.com/tatsuhiro-t/nghttp2.git
 cd nghttp2
 autoreconf -i
 automake
-autoconfs
+autoconf
 ./configure
 make
 make install
