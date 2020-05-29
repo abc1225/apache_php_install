@@ -12,7 +12,7 @@ cd ..
 
 git clone https://github.com/google/ngx_brotli.git
 cd ngx_brotli
-git submodule update –init
+git submodule update --init
 
 wget -c http://nginx.org/download/nginx-1.15.5.tar.gz
 tar zxf nginx-1.15.5.tar.gz
